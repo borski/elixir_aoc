@@ -60,7 +60,7 @@ defmodule Aoc.Year2021.Day01.SonarSweep do
   `In this example, there are *`7`* measurements that are larger than the previous
   measurement. 
 
-  *How many measurements are larger than the previous measureme
+  *How many measurements are larger than the previous measurement?
   ## --- Part Two --- 
 
   Considering every single measurement isn't as useful as you expected: there's
@@ -102,53 +102,36 @@ defmodule Aoc.Year2021.Day01.SonarSweep do
   H: 792 (*increased*)
   `In this example, there are *`5`* sums that are larger than the previous sum. 
 
-  Consider sums of a three-measurement sliding window. *How many sums are larger
-  than the previous sum?* 
-
-  nt?* 
-
-
+  Consider sums of a three-measurement sliding window. 
+  *How many sums are larger than the previous sum?* 
   """
 
   @doc """
+  Given a list of integers representing the depth of the sea, count up how many
+  times the measurement increases (the sea gets deeper).
 
+      iex> part_1([199, 200, 208, 210, 200, 207, 240, 269, 260, 263])
+      7
   """
+  @spec part_1(list(integer)) :: integer
   def part_1(input) do
-    parse_input(input)
+    input
     |> Enum.chunk_every(2, 1, :discard)
-    |> Enum.reduce(
-      0,
-      fn [x, y], acc ->
-        if x < y do
-          acc + 1
-        else
-          acc
-        end
-      end
-    )
+    |> Enum.count(fn [x, y] -> x < y end)
   end
 
   @doc """
+  Given a list of depth data, compare the summation of a three entry sliding
+  window to the previous entry and count how many times the depth is increasing.
 
+      iex> part_2([199, 200, 208, 210, 200, 207, 240, 269, 260, 263])
+      5
   """
+  @spec part_2(list(integer)) :: integer
   def part_2(input) do
-    parse_input(input)
+    input
     |> Enum.chunk_every(3, 1, :discard)
-    |> Enum.chunk_every(2, 1, :discard)
-    |> Enum.reduce(
-      0,
-      fn [x, y], acc ->
-        if Enum.sum(x) < Enum.sum(y) do
-          acc + 1
-        else
-          acc
-        end
-      end
-    )
-  end
-
-  defp parse_input(input) do
-    String.split(input)
-    |> Enum.map(&String.to_integer/1)
+    |> Enum.map(&Enum.sum/1)
+    |> part_1()
   end
 end
