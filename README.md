@@ -1,6 +1,4 @@
-# Elixir Advent of Code Skeleton
-
-A simple starter app for Advent of Code.
+# Elixir Advent of Code Solutions (2021-)
 
 Using a fork of this repo you can run:
 
@@ -11,11 +9,13 @@ mix aoc.gen DAY [--year YEAR]
 Running `mix aoc.gen 1` (at the start of the 2018 advent of code) will:
 
 * Generate a new module based on the title of the problem at
-  `lib/aoc/year_2018/day_01/problem_title.ex`
+  `lib/aoc/year_2021/day_01/problem_title.ex`
 * *Roughly* parse the html description of the problem into `@moduledoc` markdown.
 * Use your session token to download your unique problem input into `priv`
 * Generate a test file ready to solve the examples and pull in the saved problem
-  input with tags (so slow running, complex days can be skipped later on).
+  input with tags (so slow running, complex days can be skipped later on). If the 
+  input is a list of integers, you can use `as_int_list: true` in the tags to 
+  specify that.
 
 ## Installation
 
