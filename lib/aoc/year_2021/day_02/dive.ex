@@ -77,14 +77,7 @@ defmodule Aoc.Year2021.Day02.Dive do
   after following the planned course and multiplying the final horizontal position by 
   the final depth.
 
-    iex> part_1("""
-    ...>        forward 5
-    ...>        down 5
-    ...>        forward 8
-    ...>        up 3
-    ...>        down 8
-    ...>        forward 2
-    ...>        """)
+    iex> part_1(["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"])
     150
   '''
   def part_1(input) do
@@ -98,14 +91,7 @@ defmodule Aoc.Year2021.Day02.Dive do
   after following the planned course and multiplying the final horizontal position by 
   the final depth.
 
-    iex> part_2("""
-    ...>        forward 5
-    ...>        down 5
-    ...>        forward 8
-    ...>        up 3
-    ...>        down 8
-    ...>        forward 2
-    ...>        """)
+    iex> part_2(["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"])
     900
   '''
   def part_2(input) do
@@ -172,7 +158,6 @@ defmodule Aoc.Year2021.Day02.Dive do
 
   defp parse_input(input) do
     input
-    |> String.split("\n", trim: true)
     |> Enum.map(&String.split/1)
     |> Enum.map(fn [c, u] -> [c, String.to_integer(u)] end)
   end

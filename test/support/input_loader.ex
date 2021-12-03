@@ -20,6 +20,9 @@ defmodule Aoc.InputLoader do
       Map.get(options, :as_int_list) ->
         input |> String.split("\n") |> Enum.map(&String.to_integer/1)
 
+      Map.get(options, :as_lines) ->
+        input |> String.split("\n", trim: true)
+
       true ->
         input
     end
