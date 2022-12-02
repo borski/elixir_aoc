@@ -39,7 +39,7 @@ defmodule Aoc.Year2022.Day01.CalorieCountingTest do
 
     @tag day: 01, year: 2022
     test "input", %{input: input} do
-      assert input |> CalorieCounting.part_2() == 195_292
+      assert input |> Day01.part_2() == 204_610
     end
   end
 end
