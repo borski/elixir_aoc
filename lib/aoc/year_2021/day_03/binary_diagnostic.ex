@@ -94,7 +94,7 @@ defmodule Aoc.Year2021.Day03.BinaryDiagnostic do
   decimal, not binary.)   
   """
 
-  use Bitwise
+  import Bitwise
 
   @doc """
   Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together.
