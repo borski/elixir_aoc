@@ -36,6 +36,6 @@ defmodule Aoc.InputLoader do
     year
     |> path_to_file(day)
     |> File.read!()
-    |> String.trim()
+    |> String.trim_trailing()
   end
 end
